@@ -1,0 +1,22 @@
+<html>
+<head>
+	<title>{{ title }}</title>
+</head>
+<body>
+	<div>
+	<h3> List of articles</h3>
+	<p>
+		<ul>
+		{% for article in articles %}
+			<li><a href="/wiki/
+			{% if list_empty %}
+				{{ first }}/edit
+			{% else %}	
+				{{ article.header }}
+			{% endif %}
+			/">{{ article.header }}</a></li>
+		{% endfor%}
+		</ul>
+	</p>
+	</div>
+</body>	

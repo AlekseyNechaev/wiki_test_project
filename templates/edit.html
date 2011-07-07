@@ -1,0 +1,16 @@
+<html>
+<head>
+	<title>{{ title }}</title>
+</head>
+<body>
+	<div>
+		<form action="add/" method="POST">
+			{% csrf_token %}
+			<p><input type="text" name="header" value="{{ input.header }}" /></p>
+			<p><textarea name="content">{{ input.content }}</textarea> 
+			</p>
+			<p><input type="text" name="tags" value="{% for tag in input.tags %}{{ tag.tag }}{% if not forloop.last %}, {% endif %}{% endfor %}" /></p>
+			<p><input type="submit" /></p>
+		</form>
+	</div>
+</body>	

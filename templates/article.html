@@ -1,0 +1,21 @@
+{% load markup %}
+<html>
+<head>
+	<title>{{ title }}</title>
+</head>
+<body>
+	<div>
+	<h3>{{ article.header }}</h3>
+	<p>
+		{{ article.content|markdown }}
+	</p>
+	<p>
+		<h4>Tags:</h4>
+		{% for tag in article.tags %}
+			<a href="/tags/{{ tag.tag }}/">{{ tag.tag }}</a>{% if not forloop.last %},{% endif %}
+		{% endfor %}
+	</p>
+	<p><a href="/wiki/{{ article.header }}/edit/">Edit article</a></p>
+	<p><a href="/wiki/">Back to List</a></p>
+	</div>
+</body>	
